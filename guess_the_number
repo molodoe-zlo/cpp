@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <iostream>
+
+using namespace std;
+
+int main(void) 
+{
+    int x, p;
+    cout << "Guess what number I was thinking?" << endl;
+    srand(time(NULL));
+    x = rand() % 100;
+    cin >> p;
+    while (p != x)
+    {
+        if (p > x)
+        {
+            cout << "No, my number is less. Try again." << endl;
+            cin >> p;
+        }
+        else
+        {
+            cout << "No, my number is higher. Try again." << endl;
+            cin >> p;
+        }
+    }
+    cout << "Right! It's " << x << endl;
+    return 0;
+}
