@@ -2,11 +2,10 @@
 
 using namespace std;
 
-double temp, a, b;
-
 int main()
 {
-    //считываем все данные
+    int temp, a, b;
+
     cout << "Select a scale for measuring temperature." << endl;
     cout << "Celsius - 1, Kelvin - 2, Fahrenheit - 3, Rankin - 4, Remer - 5, Nuton - 6, Delil - 7, Reomur - 8." << endl;
     cin >> a;
@@ -15,7 +14,7 @@ int main()
     cout << "Choose which scale to convert to." << endl;
     cout << "Celsius - 1, Kelvin - 2, Fahrenheit - 3, Rankin - 4, Remer - 5, Nuton - 6, Delil - 7, Reomur - 8." << endl;
     cin >> b;
-    //приводим к цельсию из любой шкалы
+
     if (a == 2)
     {
         temp = temp - 273.15;
@@ -44,7 +43,7 @@ int main()
     {
         temp = 0.8 * temp;
     }
-    //переводим из цельсия в нужную шкалу
+
     if (b == 2)
     {
         temp = temp + 273.15;
