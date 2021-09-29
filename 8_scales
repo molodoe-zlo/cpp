@@ -1,0 +1,78 @@
+#include <iostream>
+
+using namespace std;
+
+double temp, a, b;
+
+int main()
+{
+    //считываем все данные
+    cout << "Select a scale for measuring temperature." << endl;
+    cout << "Celsius - 1, Kelvin - 2, Fahrenheit - 3, Rankin - 4, Remer - 5, Nuton - 6, Delil - 7, Reomur - 8." << endl;
+    cin >> a;
+    cout << "Enter value." << endl;
+    cin >> temp;
+    cout << "Choose which scale to convert to." << endl;
+    cout << "Celsius - 1, Kelvin - 2, Fahrenheit - 3, Rankin - 4, Remer - 5, Nuton - 6, Delil - 7, Reomur - 8." << endl;
+    cin >> b;
+    //приводим к цельсию из любой шкалы
+    if (a == 2)
+    {
+        temp = temp - 273.15;
+    }
+    if (a == 3)
+    {
+        temp = (temp - 32) * 0.5;
+    }
+    if (a == 4)
+    {
+        temp = (temp - 491.67) * 0.5;
+    }
+    if (a == 5)
+    {
+        temp = 1.9 * (temp - 7.5);
+    }
+    if (a == 6)
+    {
+        temp = 3.03 * temp;
+    }    
+    if (a == 7)
+    {
+        temp = 100 - temp * 0.6;
+    }
+    if (a == 8)
+    {
+        temp = 0.8 * temp;
+    }
+    //переводим из цельсия в нужную шкалу
+    if (b == 2)
+    {
+        temp = temp + 273.15;
+    }
+    if (b == 3)
+    {
+        temp = temp * 1.8 + 32;
+    }
+    if (b == 4)
+    {
+        temp = temp * 1.8 + 491.67;
+    }
+    if (b == 5)
+    {
+        temp = 0.525 * temp + 7.5;
+    }
+    if (b == 6)
+    {
+        temp = 0.33 * temp;
+    }
+    if (b == 7)
+    {
+        temp = (100 - temp) * 1.5;
+    }
+    if (b == 8)
+    {
+        temp = 1.25 * temp;
+    }
+    cout << temp;
+    return (0);
+}
