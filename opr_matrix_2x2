@@ -1,0 +1,26 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+//используя массив
+
+int main()
+{
+    const int SIZE = 2;
+    int data[SIZE][SIZE] = {{1,2},{3,4}};
+    for (int y = 0; y < SIZE; y++) {
+        for (int x = 0; x < SIZE; x++) {
+            cout << data[x][y] << " ";
+        }
+        cout << endl;
+    }
+
+    cout << endl;
+
+    int a = (data[0][0] * data[1][1]);
+    int b = (data[0][1] * data[1][0]);
+    int opr = a - b;
+    cout << opr;
+
+   return 0;
+}
