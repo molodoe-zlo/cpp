@@ -1,0 +1,32 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    const int SIZE = 3;
+    int data[SIZE][SIZE] = { {1,2,3},{4,5,6},{7,8,9} };
+        for (int y = 0; y < SIZE; y++) {
+            for (int x = 0; x < SIZE; x++) {
+                cout << data[x][y] << " ";
+            }
+            cout << endl;
+    }
+
+    cout << endl;
+    
+    //менее красивое и приятное для восприятия решение, зато занимает меньше памяти :)
+    //int opr = (data[0][0] * data[1][1] * data[2][2]) + (data[0][1] * data[1][2] * data[2][0]) + (data[0][2] * data[1][0] * data[2][1]) - (data[0][2] * data[1][1] * data[2][0]) - (data[0][0] * data[1][2] * data[2][1]) - (data[0][1] * data[1][0] * data[2][2]);
+
+    int a = (data[0][0] * data[1][1] * data[2][2]);
+    int b = (data[0][1] * data[1][2] * data[2][0]);
+    int c = (data[0][2] * data[1][0] * data[2][1]);
+    int d = (data[0][2] * data[1][1] * data[2][0]);
+    int e = (data[0][0] * data[1][2] * data[2][1]);
+    int f = (data[0][1] * data[1][0] * data[2][2]);
+
+    int opr = a + b + c - d - e - f;
+    cout << opr;
+
+   return 0;
+}
