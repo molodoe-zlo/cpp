@@ -1,0 +1,46 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    //считали значения, создали матрицу
+    int n, m;
+    cin >> n >> m;
+    if ((n != m) || ((n > 3) || (m > 3))) cout << "wrong size";
+    int** arr = new int* [n];
+    for (int i = 0; i < n; i++)
+    {
+        arr[i] = new int[m];
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int t = 0; t < m; t++)
+        {
+            cin >> arr[i][t];
+        }
+    }
+
+    //если матрица 2х2, посчитаем определь
+    if (n == 2)
+    {
+        int opr = (arr[0][0] * arr[1][1] - arr[0][1] * arr[1][0]);
+        cout << opr;
+    }
+
+     //если матрица 3х3, посчитаем определь
+     if (n == 3)
+     {
+         int a = (arr[0][0] * arr[1][1] * arr[2][2]);
+         int b = (arr[0][1] * arr[1][2] * arr[2][0]);
+         int c = (arr[0][2] * arr[1][0] * arr[2][1]);
+         int d = (arr[0][2] * arr[1][1] * arr[2][0]);
+         int e = (arr[0][0] * arr[1][2] * arr[2][1]);
+         int f = (arr[0][1] * arr[1][0] * arr[2][2]);
+
+         int opr = a + b + c - d - e - f;
+         cout << opr;
+    }
+return 0;
+}
