@@ -1,0 +1,48 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    //создали массив, в котором будем определять, является ли слово палиндромом
+    char* word = new char[30];
+    int lenght = 0;
+    //создали массив палиндромов
+    char** palimdroms = new char* [30];
+    for (int i = 0; i < 30; i++)
+    {
+        palimdroms[i] = new char[30];
+    }
+
+    //считываем одно слово и пределяем является ли оно палиндромом
+    int count = 0;
+    cin >> word;
+    while (strcmp(word, "END"))
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            if (!word[i])
+            {
+                lenght = i; break;
+            }
+        }
+        bool flag = true;
+        for (int i = 0; i < lenght; i++)
+        {
+            if (word[i] != word[lenght - i - 1]) flag = false;
+        }
+        //если да, то записываем в массив палиндромов
+        if (flag)
+        {
+            strcpy_s(palimdroms[count++], 30, word);
+        }
+        cin >> word;
+    }
+
+    //выводим массив палиндромов
+    std::sort(palimdroms, palimdroms + count, [](char* a, char* b) {return a[1] < b[1]; });
+    for (int i = 0; i < count; i++)
+    {
+        cout << palimdroms[i] << endl;
+    }
+}
