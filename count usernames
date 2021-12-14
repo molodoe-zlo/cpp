@@ -1,0 +1,29 @@
+#include <cstdio>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    char* username = new char[100];
+    char* name = new char[100];
+    int count = 0;
+    cout << "Hi, what's your name?" << endl;
+    cin >> username;
+
+    ifstream fin;
+    fin.open("names.txt");
+
+    while (!fin.eof())
+    {
+        fin >> name;
+        if (strcmp (name,username)) count += 1;
+    }
+    cout << count;
+    fin.close();
+
+    ofstream fout;
+    fout.open("names.txt", ios::app);
+    fout << endl << username;
+    fout.close();
+}
